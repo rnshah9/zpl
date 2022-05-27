@@ -1,0 +1,5 @@
+project: rnshah9/zpl
+target: json-benchmark
+
+cmds:
+  - cmd: /repo/build/json_benchmark @@
