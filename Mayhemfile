@@ -1,4 +1,4 @@
-project: rnshah9/zpl
+project: zpl
 target: json-benchmark
 
 cmds:
