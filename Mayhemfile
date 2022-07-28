@@ -2,4 +2,4 @@ project: zpl
 target: json-benchmark
 
 cmds:
-  - cmd: /repo/build/json_benchmark @@
+  - cmd: /json_benchmark @@
