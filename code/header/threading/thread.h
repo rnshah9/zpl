@@ -25,9 +25,11 @@ typedef struct zpl_thread {
     zpl_semaphore    semaphore;
     zpl_isize        stack_size;
     zpl_b32          is_running;
+    zpl_b32          nowait;
 } zpl_thread;
 
 ZPL_DEF void     zpl_thread_init            (zpl_thread *t);
+ZPL_DEF void     zpl_thread_init_nowait     (zpl_thread *t);
 ZPL_DEF void     zpl_thread_destroy         (zpl_thread *t);
 ZPL_DEF void     zpl_thread_start           (zpl_thread *t, zpl_thread_proc proc, void *data);
 ZPL_DEF void     zpl_thread_start_with_stack(zpl_thread *t, zpl_thread_proc proc, void *data, zpl_isize stack_size);

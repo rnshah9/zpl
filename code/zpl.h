@@ -43,9 +43,9 @@ License:
 #ifndef ZPL_H
 #define ZPL_H
 
-#define ZPL_VERSION_MAJOR 16
-#define ZPL_VERSION_MINOR 1
-#define ZPL_VERSION_PATCH 1
+#define ZPL_VERSION_MAJOR 18
+#define ZPL_VERSION_MINOR 0
+#define ZPL_VERSION_PATCH 0
 #define ZPL_VERSION_PRE ""
 
 #include "zpl_hedley.h"
@@ -118,7 +118,6 @@ License:
 #    define ZPL_MODULE_MATH
 #    define ZPL_MODULE_THREADING
 #    define ZPL_MODULE_JOBS
-#    define ZPL_MODULE_COROUTINES
 #    define ZPL_MODULE_PARSER
 
     /* zpl nano distribution */
@@ -133,7 +132,6 @@ License:
 #        undef ZPL_MODULE_MATH
 #        undef ZPL_MODULE_THREADING
 #        undef ZPL_MODULE_JOBS
-#        undef ZPL_MODULE_COROUTINES
 #        undef ZPL_MODULE_PARSER
 #    endif
 
@@ -144,9 +142,6 @@ License:
     /* module enabling overrides */
 #    if defined(ZPL_ENABLE_CORE) && !defined(ZPL_MODULE_CORE)
 #        define ZPL_MODULE_CORE
-#    endif
-#    if defined(ZPL_ENABLE_TIMER) && !defined(ZPL_MODULE_TIMER)
-#        define ZPL_MODULE_TIMER
 #    endif
 #    if defined(ZPL_ENABLE_HASHING) && !defined(ZPL_MODULE_HASHING)
 #        define ZPL_MODULE_HASHING
@@ -175,17 +170,6 @@ License:
 #        endif
 #        define ZPL_MODULE_JOBS
 #    endif
-#    if defined(ZPL_ENABLE_COROUTINES) && !defined(ZPL_MODULE_COROUTINES)
-#        ifndef ZPL_MODULE_THREADING
-#        define ZPL_MODULE_THREADING /* dependency */
-#        endif
-
-#        ifndef ZPL_MODULE_JOBS
-#        define ZPL_MODULE_JOBS /* dependency */
-#        endif
-
-#        define ZPL_MODULE_COROUTINES
-#    endif
 #    if defined(ZPL_ENABLE_PARSER) && !defined(ZPL_MODULE_PARSER)
 #        define ZPL_MODULE_PARSER
 #    endif
@@ -193,9 +177,6 @@ License:
     /* module disabling overrides */
 #    if defined(ZPL_DISABLE_CORE) && defined(ZPL_MODULE_CORE)
 #        undef ZPL_MODULE_CORE
-#    endif
-#    if defined(ZPL_DISABLE_TIMER) && defined(ZPL_MODULE_TIMER)
-#        undef ZPL_MODULE_TIMER
 #    endif
 #    if defined(ZPL_DISABLE_HASHING) && defined(ZPL_MODULE_HASHING)
 #        undef ZPL_MODULE_HASHING
@@ -220,21 +201,10 @@ License:
 #        undef ZPL_MODULE_JOBS /* user */
 #        endif
 
-#        ifdef ZPL_MODULE_COROUTINES
-#        undef ZPL_MODULE_COROUTINES /* user */
-#        endif
-
 #        undef ZPL_MODULE_THREADING
 #    endif
 #    if defined(ZPL_DISABLE_JOBS) && defined(ZPL_MODULE_JOBS)
-#        ifdef ZPL_MODULE_COROUTINES
-#        undef ZPL_MODULE_COROUTINES /* user */
-#        endif
-
 #        undef ZPL_MODULE_JOBS
-#    endif
-#    if defined(ZPL_DISABLE_COROUTINES) && defined(ZPL_MODULE_COROUTINES)
-#        undef ZPL_MODULE_COROUTINES
 #    endif
 #    if defined(ZPL_DISABLE_PARSER) && defined(ZPL_MODULE_PARSER)
 #        undef ZPL_MODULE_PARSER
@@ -291,10 +261,6 @@ License:
 #        include "header/core/misc.h"
 #        include "header/core/sort.h"
 #    endif
-#endif
-
-#if defined(ZPL_MODULE_TIMER)
-#    include "header/timer.h"
 #endif
 
 #if defined(ZPL_MODULE_HASHING)
@@ -356,10 +322,6 @@ License:
 
 #    if defined(ZPL_MODULE_JOBS)
 #        include "header/jobs.h"
-#    endif
-
-#    if defined(ZPL_MODULE_COROUTINES)
-#        include "header/coroutines.h"
 #    endif
 #else
 #    if !defined(zpl_thread_local)
@@ -464,10 +426,6 @@ License:
 #    endif
 #endif
 
-#if defined(ZPL_MODULE_TIMER)
-#    include "source/timer.c"
-#endif
-
 #if defined(ZPL_MODULE_HASHING)
 #    include "source/hashing.c"
 #endif
@@ -503,10 +461,6 @@ License:
 
 #    if defined(ZPL_MODULE_JOBS)
 #        include "source/jobs.c"
-#    endif
-
-#    if defined(ZPL_MODULE_COROUTINES)
-#        include "source/coroutines.c"
 #    endif
 #endif
 
@@ -560,7 +514,6 @@ License:
 // TOC:
 // zpl.h
 // zpl_hedley.h
-// header/coroutines.h
 // header/opts.h
 // header/essentials/helpers.h
 // header/essentials/memory.h
@@ -586,7 +539,6 @@ License:
 // header/parsers/csv.h
 // header/dll.h
 // header/adt.h
-// header/timer.h
 // header/core/file_tar.h
 // header/core/memory_virtual.h
 // header/core/random.h
@@ -604,7 +556,6 @@ License:
 // header/regex.h
 // source/hashing.c
 // source/adt.c
-// source/coroutines.c
 // source/process.c
 // source/essentials/array.c
 // source/essentials/debug.c
@@ -635,5 +586,4 @@ License:
 // source/core/sort.c
 // source/core/file_tar.c
 // source/opts.c
-// source/timer.c
 // source/math.c

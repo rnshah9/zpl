@@ -34,9 +34,9 @@ There are several options in getting hands-on zpl:
 
 ## 1. Via CLI (the simplest option)
 ```sh
-curl -L zpl.pw/fetch > zpl.h
+curl -L https://github.com/zpl-c/zpl/releases/latest/download/zpl.h > zpl.h
 # OR
-wget zpl.pw/fetch -O zpl.h
+wget https://github.com/zpl-c/zpl/releases/latest/download/zpl.h -O zpl.h
 ```
 
 This approach will download the latest release of zpl with everything prepared for you.
@@ -74,13 +74,11 @@ Please follow the [CONTRIBUTING.md](.github/CONTRIBUTING.md) guide to learn how 
 | **Threading** | Threading, and blocking models, thread merge operation based on stb_sync, as well as CPU affinity management. | 🔴 | ✅ |
 | **Regex** | Regular expressions library. | 🔴 | ✅ |
 | **DLL** | Cross-platform methods for loading dynamic libraries. | 🔴 | ✅ |
-| **Timer** | Callback-based primitive timer library. | 🔴 | ✅ |
 | **Hashing** | Various hashing methods. Contains: `base64`, `adler32`, `crc32/64`, `fnv32/64/a` and `murmur32/64` | ✅ | ✅ |
 | **Text Parsers** | Various text parsers for different formats that offer cross-language transformations. Currently supported: `JSON5/SJSON`, `CSV`. | ✅ | ✅ |
 | **Options** | CLI options parser. Parsing flags, switches, and arguments from the command line. | 🔴 | ✅ |
 | **Process** | Primitives for low-level process management. | 🔴 | ✅ |
 | **Jobs System** | Asynchronous task-based scheduling system. | 🔴 | ✅ |
-| **Co-routines** | LUA-inspired module implementing co-routines feature for C11. | 🔴 | ✅ |
 | **Math** | Gamedev friendly library for math. | 🔴 | ✅ |
 | **Miscellaneous** | Other valuable methods that are part of the core distribution. | ✅ | ✅ |
 
